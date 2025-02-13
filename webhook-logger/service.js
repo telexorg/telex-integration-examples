@@ -1,12 +1,32 @@
 const express = require("express");
 const axios = require("axios");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+const allowedOrigins = [
+  "https://telex.im",
+  "https://staging.telex.im",
+  "https://telextest.im",
+  "https://staging.telextest.im",
+];
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
-// Integration metadata
 app.get("/integration.json", (req, res) => {
   const baseUrl = `${req.protocol}://${req.get("host")}`;
   const integration = {
@@ -43,7 +63,6 @@ app.get("/integration.json", (req, res) => {
   res.json(integration);
 });
 
-// Handle incoming requests and forward to webhook URL
 app.post("/target_url", async (req, res) => {
   const { message, settings } = req.body;
   const slug = settings?.["webhook-slug"];
