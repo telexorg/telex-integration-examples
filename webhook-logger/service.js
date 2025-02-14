@@ -2,6 +2,8 @@ const express = require("express");
 const axios = require("axios");
 const cors = require("cors");
 
+require("dotenv").config()
+
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -65,7 +67,7 @@ app.get("/integration.json", (req, res) => {
 
 app.post("/target_url", async (req, res) => {
   const { message, settings } = req.body;
-  const slug = settings?.["webhook-slug"];
+  const slug = settings?.filter((setting) => setting?.label === "webhook-slug")?.[0]?.default
 
   if (!slug) {
     return res.status(400).json({ error: "webhook-slug setting is required" });
