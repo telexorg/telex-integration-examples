@@ -47,7 +47,7 @@ app.get("/integration.json", (req, res) => {
       is_active: true,
       integration_type: "output",
       key_features: ["- Logs payloads to webhook.site or any webhook endpoint"],
-      category: "Logging",
+      integration_category: "Monitoring & Logging",
       author: "Osinachi Chukwujama",
       website: baseUrl,
       settings: [
