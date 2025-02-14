@@ -4,7 +4,7 @@ This is a dummy output integration that sends whatever data enters the channel t
 
 ## How to use
 
-1. Install the integration using its JSON URL at:
+1. Install the integration using its JSON URL at: https://webhook-site-logger.onrender.com/integration.json
 2. Set the webhook slug in the settings (Org dashboard > Apps > "Telex Webhook.site Logger" > Settings), obtained from https://webhook.site
 
 ![Slug is up there](webook.site-slug.png)
