@@ -8,8 +8,8 @@ const PORT = process.env.PORT || 8000;
 const allowedOrigins = [
   "https://telex.im",
   "https://staging.telex.im",
-  "https://telextest.im",
-  "https://staging.telextest.im",
+  "http://telextest.im",
+  "http://staging.telextest.im",
 ];
 
 app.use(
