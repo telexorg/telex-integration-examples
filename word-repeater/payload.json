@@ -1,0 +1,27 @@
+{
+	"channel_id": "12345",
+	"settings": [
+	  {
+		"label": "maxMessageLength",
+		"type": "number",
+		"description": "Set the maximum length for incoming messages to format.",
+		"default": 500,
+		"required": true
+	  },
+      {
+        "label": "repeatWords",
+        "type":"multi-select",
+        "description": "Set the words that needs to be repeated",
+        "default": "world, happy",
+        "required": true
+      },
+	  {
+		"label": "noOfRepetitions",
+		"type": "number",
+		"description": "Set the number of repetitions for words that needs to be repeated",
+		"default": "4",
+		"required": true
+	  }
+	],
+	"message": "This is a test message that will be formatted."
+  }

@@ -1,0 +1,55 @@
+{
+    "data": {
+      "date": {
+        "created_at": "2025-02-13",
+        "updated_at": "2025-02-13"
+      },
+      "descriptions": {
+        "app_name": "Message Formatter",
+        "app_description": "A message formatter bot that processes incoming messages and sends back formatted responses.",
+        "app_logo": "https://96a6-197-210-77-35.ngrok-free.app",
+        "app_url": "https://96a6-197-210-77-35.ngrok-free.app",
+        "background_color": "#ffffff"
+      },
+      "is_active": true,
+      "integration_type": "modifier",
+      "key_features": [
+        "Receive messages from Telex channels.",
+        "Format messages based on predefined templates or logic.",
+        "Send formatted responses back to the channel.",
+        "Log message formatting activity for auditing purposes."
+      ],
+      "permissions": {
+        "events": [
+          "Receive messages from Telex channels.",
+          "Format messages based on predefined templates or logic.",
+          "Send formatted responses back to the channel.",
+          "Log message formatting activity for auditing purposes."
+        ]
+      },
+      "author": "Micah Shallom",
+      "website": "https://96a6-197-210-77-35.ngrok-free.app",
+      "settings": [
+        {
+          "label": "maxMessageLength",
+          "type": "number",
+          "required": true,
+          "default": 100
+        },
+        {
+          "label": "repeatWords",
+          "type": "multi-select",
+          "required": true,
+          "default": "world,happy"
+        },
+        {
+          "label": "noOfRepetitions",
+          "type": "number",
+          "required": true,
+          "default": 2
+        }
+      ],
+      "target_url": "https://96a6-197-210-77-35.ngrok-free.app/format-message",
+      "tick_url": "https://96a6-197-210-77-35.ngrok-free.app/format-message"
+    }
+}
