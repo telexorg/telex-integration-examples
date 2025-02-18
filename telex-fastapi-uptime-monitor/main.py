@@ -52,7 +52,7 @@ def get_integration_json(request: Request):
             "is_active": False,
             "integration_type": "interval",
             "key_features": ["- monitors websites"],
-            "category": "Monitoring",
+            "integration_category": "Monitoring & Logging",
             "author": "Osinachi Chukwujama",
             "website": base_url,
             "settings": [
