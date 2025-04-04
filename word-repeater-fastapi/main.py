@@ -65,6 +65,9 @@ def process_message(msg_req: Message) -> str:
 async def format_message(request: Request):
     try:
         body = await request.json()
+
+        print("Received body", body)
+
         msg_req = Message(**body)
         formatted = process_message(msg_req)
 
