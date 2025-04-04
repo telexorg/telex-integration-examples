@@ -14,7 +14,8 @@ jobs:
     strategy:
       matrix:
         include:
-          - dockerfile: ./word-repeater-fastapi/Dockerfile
+          - context: word-repeater-fastapi
+            dockerfile: Dockerfile
             image: word-repeater-fastapi
 
     steps:
@@ -31,7 +32,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-          context: .
-          file: ${{ matrix.dockerfile }}
+          context: ${{ matrix.context }}
+          file: ${{ matrix.context }}/${{ matrix.dockerfile }}
           push: true
           tags: ghcr.io/${{ github.repository }}/${{ matrix.image }}:latest

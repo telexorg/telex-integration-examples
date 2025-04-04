@@ -4,11 +4,11 @@ WORKDIR /app
 
 RUN pip install uv
 
-COPY pyproject.toml uv.lock .python-version .
+COPY pyproject.toml uv.lock .python-version ./
 
 RUN uv sync
 
-COPY . .
+COPY  .
 
 EXPOSE 8080
 
