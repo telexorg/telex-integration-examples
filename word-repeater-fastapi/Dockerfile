@@ -8,7 +8,7 @@ COPY pyproject.toml uv.lock .python-version ./
 
 RUN uv sync
 
-COPY  .
+COPY . .
 
 EXPOSE 8080
 
