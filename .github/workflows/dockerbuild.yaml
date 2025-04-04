@@ -18,7 +18,7 @@ jobs:
           - context: word-repeater-fastapi
             dockerfile: Dockerfile
             image: word-repeater-fastapi
-            hook: ${{ secrets.WORD_REPEATER_FASTAPI_HOOK }}
+            hook_name: WORD_REPEATER_FASTAPI_HOOK
 
     steps:
       - name: Check out the repo
@@ -40,4 +40,6 @@ jobs:
           tags: ghcr.io/${{ github.repository }}/${{ matrix.image }}:latest
 
       - name: Trigger redeploy
-        run: curl ${{ matrix.hook }}
+        run: curl ${{ env.HOOK }}
+        env:
+          HOOK: ${{ secrets[matrix.hook_name] }}
