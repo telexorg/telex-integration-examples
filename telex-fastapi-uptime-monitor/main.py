@@ -19,6 +19,9 @@ class MonitorPayload(BaseModel):
     return_url: str
     settings: List[Setting]
 
+class AuthCallbackPayload(BaseModel):
+    api_key: str
+    org_id: str
 
 app = FastAPI()
 
@@ -49,6 +52,7 @@ def get_integration_json(request: Request):
                 "app_url": base_url,
                 "background_color": "#fff",
             },
+            "auth_callback": f"{base_url}/auth_callback",
             "bot": True,
             "bot_profile": {
                 "name": "Uptimer bot",
@@ -144,6 +148,14 @@ def monitor(payload: MonitorPayload, background_tasks: BackgroundTasks):
     """Immediately returns 202 and runs monitoring in the background."""
     background_tasks.add_task(monitor_task, payload)
     return {"status": "success"}
+    
+
+@app.post("/auth_callback", status_code=200)
+def handle_auth_callback(payload: AuthCallbackPayload):
+    """call back telex using the API key"""
+    print(payload)
+    return {"status": "success", "payload": payload}
+
 
 
 if __name__ == "__main__":
