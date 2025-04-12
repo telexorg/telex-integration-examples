@@ -49,6 +49,10 @@ def get_integration_json(request: Request):
                 "app_url": base_url,
                 "background_color": "#fff",
             },
+            "bot": True,
+            "bot_profile": {
+                "name": "Uptimer bot",
+            },
             "is_active": False,
             "integration_type": "interval",
             "key_features": ["- monitors websites"],
